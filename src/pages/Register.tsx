@@ -2,7 +2,7 @@ import React, {useState} from "react"
 import { observer } from 'mobx-react'
 import styled from "styled-components";
 
-export const Register = observer(() => {
+export const Register = observer((props: { onFormSwitch: (arg0: string) => void; }) => {
     const [email, setEmail] = useState('');
     const [pass, setPass] = useState('');
     const [name, setName] = useState('');
@@ -22,7 +22,7 @@ return(
         <input value={pass} onChange={(e) => setPass(e.target.value)} type={'password'} placeholder={'*****'} id={'password'} name={'password'} />
         <button type='submit'> Register your details. </button>
     </form>
-        <button> Already have an account? Login here. </button>
+        <button onClick={() => props.onFormSwitch('login')}> Already have an account? Login here. </button>
     </FormWrapper>
 
 )})
